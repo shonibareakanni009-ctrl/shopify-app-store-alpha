@@ -24,10 +24,13 @@
     </section>
     <section id="store-stage" class="stage store-stage hidden">
       <header class="store-header"><div class="shopify-mark">S</div><span>Shopify App Store</span><div class="header-spacer"></div><span class="header-menu">Explore apps&nbsp;&nbsp; Categories</span></header>
-      <div class="store-content"><div class="store-loading"><span class="store-spinner"></span><span>Loading apps…</span></div></div>
-    </section>
-    <section id="error-stage" class="stage error-stage hidden">
-      <div class="error-card"><div class="error-symbol">!</div><h1>Failed to connect with server.</h1><p>We couldn’t load the Shopify App Store right now. Please try again.</p><button id="retry-button" type="button">Try again</button></div>
+      <div class="store-content">
+        <div id="store-loading" class="store-loading"><span class="store-spinner"></span><span>Loading apps…</span></div>
+        <div id="connection-error" class="connection-error hidden">
+          <p>Failed to connect with server.</p>
+          <button id="retry-button" type="button">Try again</button>
+        </div>
+      </div>
     </section>
   </main>
   <script src="script.js"></script>
