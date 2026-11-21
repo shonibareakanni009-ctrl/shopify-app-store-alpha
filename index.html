@@ -23,7 +23,17 @@
       </div>
     </section>
     <section id="store-stage" class="stage store-stage hidden">
-      <header class="store-header"><div class="shopify-mark">S</div><span>Shopify App Store</span><div class="header-spacer"></div><span class="header-menu">Explore apps&nbsp;&nbsp; Categories</span></header>
+      <header class="store-header">
+        <div class="brand-lockup"><div class="shopify-mark">S</div><span>Shopify App Store</span></div>
+        <form class="header-search" role="search" onsubmit="return false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+          <input type="search" aria-label="Search apps" placeholder="Search apps">
+        </form>
+        <div class="header-actions">
+          <button class="login-button" type="button">Log in</button>
+          <button class="signup-button" type="button">Sign up</button>
+        </div>
+      </header>
       <div class="store-content">
         <div id="store-loading" class="store-loading"><span class="store-spinner"></span><span>Loading apps…</span></div>
         <div id="connection-error" class="connection-error hidden">
