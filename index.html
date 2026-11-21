@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f6f7">
+  <title>Shopify App Store Alpha</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app" aria-live="polite">
+    <section id="blank-stage" class="stage blank-stage">
+      <div class="shopify-spinner" role="status" aria-label="Loading"></div>
+    </section>
+    <section id="assets-stage" class="stage assets-stage hidden">
+      <div class="asset-shell">
+        <div class="asset-top"><span class="tiny-spinner"></span><span>Preparing storefront assets</span><span id="asset-count">0 / 7</span></div>
+        <h1>Loading assets</h1>
+        <p class="muted">Please wait while required resources are prepared…</p>
+        <div id="asset-list" class="asset-list"></div>
+        <div class="progress-track"><span id="asset-progress"></span></div>
+        <div class="asset-source"><span>Asset source</span><div class="github-brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.76 2.14 3.47 1.52.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.12-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.12 2.96.71.78 1.14 1.78 1.14 3.14 0 4.29-2.61 5.23-5.1 5.51.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg><strong>GitHub</strong></div></div>
+      </div>
+    </section>
+    <section id="store-stage" class="stage store-stage hidden">
+      <header class="store-header"><div class="shopify-mark">S</div><span>Shopify App Store</span><div class="header-spacer"></div><span class="header-menu">Explore apps&nbsp;&nbsp; Categories</span></header>
+      <div class="store-content"><div class="store-loading"><span class="store-spinner"></span><span>Loading apps…</span></div></div>
+    </section>
+    <section id="error-stage" class="stage error-stage hidden">
+      <div class="error-card"><div class="error-symbol">!</div><h1>Failed to connect with server.</h1><p>We couldn’t load the Shopify App Store right now. Please try again.</p><button id="retry-button" type="button">Try again</button></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
