@@ -1,47 +1,57 @@
 (() => {
-  const stages = ["blank-stage","assets-stage","store-stage","error-stage"];
+  const stages = ["blank-stage","assets-stage","store-stage"];
   const assets = ["app-shell.css","app-shell.js","storefront-icons.svg","shopify-mark.svg","fonts/inter.woff2","app-store-layout.css","app-store-runtime.js"];
   const delay = ms => new Promise(resolve => setTimeout(resolve,ms));
   const show = id => stages.forEach(stage => document.getElementById(stage).classList.toggle("hidden",stage!==id));
   let runToken = 0;
-  async function startSequence(){
+  const storeLoading = document.getElementById("store-loading");
+  const connectionError = document.getElementById("connection-error");
+
+  async function attemptConnection(token) {
+    storeLoading.classList.remove("hidden");
+    connectionError.classList.add("hidden");
+    await delay(3200);
+    if (token !== runToken) return;
+    storeLoading.classList.add("hidden");
+    connectionError.classList.remove("hidden");
+  }
+
+  async function startSequence() {
     const token = ++runToken;
     show("blank-stage");
     await delay(1400);
-    if(token!==runToken)return;
+    if (token !== runToken) return;
     show("assets-stage");
-    const list=document.getElementById("asset-list");
-    const count=document.getElementById("asset-count");
-    const progress=document.getElementById("asset-progress");
-    list.innerHTML="";
-    count.textContent="0 / "+assets.length;
-    progress.style.width="0%";
-    for(let i=0;i<assets.length;i++){
-      if(token!==runToken)return;
-      const row=document.createElement("div");
-      row.className="asset-row";
-      row.innerHTML='<span class="asset-dot"></span><span></span><span class="asset-status">Loading</span>';
-      row.children[1].textContent=assets[i];
+    const list = document.getElementById("asset-list");
+    const count = document.getElementById("asset-count");
+    const progress = document.getElementById("asset-progress");
+    list.innerHTML = "";
+    count.textContent = "0 / " + assets.length;
+    progress.style.width = "0%";
+    for (let i = 0; i < assets.length; i++) {
+      if (token !== runToken) return;
+      const row = document.createElement("div");
+      row.className = "asset-row";
+      row.innerHTML = '<span class="asset-dot"></span><span></span><span class="asset-status">Loading</span>';
+      row.children[1].textContent = assets[i];
       list.appendChild(row);
       await delay(360);
-      if(token!==runToken)return;
+      if (token !== runToken) return;
       row.classList.add("done");
-      row.children[2].textContent="Loaded";
-      count.textContent=(i+1)+" / "+assets.length;
-      progress.style.width=((i+1)/assets.length*100)+"%";
+      row.children[2].textContent = "Loaded";
+      count.textContent = (i + 1) + " / " + assets.length;
+      progress.style.width = ((i + 1) / assets.length * 100) + "%";
     }
     await delay(500);
-    if(token!==runToken)return;
+    if (token !== runToken) return;
     show("store-stage");
-    await delay(4200);
-    if(token!==runToken)return;
-    show("error-stage");
+    await attemptConnection(token);
   }
-  document.getElementById("retry-button").addEventListener("click",async()=>{
-    const token=++runToken;
-    show("store-stage");
-    await delay(3200);
-    if(token===runToken)show("error-stage");
+
+  document.getElementById("retry-button").addEventListener("click", async () => {
+    const token = ++runToken;
+    await attemptConnection(token);
   });
+
   startSequence();
 })();
