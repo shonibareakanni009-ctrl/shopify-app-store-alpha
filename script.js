@@ -88,10 +88,12 @@
   let sessionTimer=null,remaining=30;
   function showDisconnected(){
     if(sessionTimer){clearInterval(sessionTimer);sessionTimer=null;}
+    document.querySelector(".store-content").classList.add("disconnected");
     statusPanel.classList.add("hidden");errorPanel.classList.remove("hidden");
   }
   function connectTemporary(){
     if(sessionTimer)clearInterval(sessionTimer);
+    document.querySelector(".store-content").classList.remove("disconnected");
     errorPanel.classList.add("hidden");statusPanel.classList.remove("hidden");
     remaining=30;countdown.textContent=remaining;
     sessionTimer=setInterval(()=>{
