@@ -53,7 +53,7 @@
   function addResourceCards(targetId,items){
     const target=document.getElementById(targetId);
     items.forEach(([name,description,icon,kind,url,keywords])=>{
-      const card=document.createElement("a");card.className="resource-card";card.href=url;card.target="_blank";card.rel="noopener noreferrer";
+      const card=document.createElement("a");card.className="resource-card";card.href=url;card.target="_blank";card.rel="noopener noreferrer";card.dataset.description=description;card.dataset.category=kind;card.dataset.external=url;
       card.dataset.search=(name+" "+description+" "+kind+" "+keywords).toLowerCase();
       const image=document.createElement("img");image.className="app-icon";image.alt="";image.loading="lazy";
       image.src="https://cdn.simpleicons.org/"+icon+"/008060";
@@ -70,6 +70,30 @@
 
   const search=document.getElementById("app-search");
   const cards=[...document.querySelectorAll(".app-card, .resource-card")];
+  const modal=document.getElementById("app-details-modal");
+  const closeDetails=()=>{modal.classList.add("hidden");modal.setAttribute("aria-hidden","true");};
+  function openDetails(card){
+    const title=card.querySelector("h3")?.textContent?.trim()||"App details";
+    const description=card.dataset.description||card.querySelector(".app-info p")?.textContent?.trim()||"Explore this app or tool and learn how it can support your Shopify store.";
+    const category=card.dataset.category|| (card.closest("#sponsored-apps")?"Sponsored app":card.closest("#spotlight-apps")?"Featured app":"Shopify app");
+    const image=card.querySelector(".app-icon");
+    const rating=card.querySelector(".app-meta")?.textContent?.trim()||"Rating and pricing details are available on the official listing.";
+    const url=card.dataset.external||("https://www.google.com/search?q="+encodeURIComponent(title+" official website"));
+    document.getElementById("details-title").textContent=title;
+    document.getElementById("details-description").textContent=description;
+    document.getElementById("details-category").textContent=category;
+    document.getElementById("details-rating").textContent=rating;
+    document.getElementById("details-benefit").textContent=description;
+    document.getElementById("details-icon").src=image?.src||"https://cdn.simpleicons.org/shopify/7AB55C";
+    document.getElementById("details-link").href=url;
+    document.getElementById("details-link").textContent=card.dataset.external?"View official listing ↗":"Find official app information ↗";
+    modal.classList.remove("hidden");modal.setAttribute("aria-hidden","false");
+    document.getElementById("details-close").focus();
+  }
+  cards.forEach(card=>{card.setAttribute("role","button");card.setAttribute("tabindex","0");card.addEventListener("click",event=>{event.preventDefault();openDetails(card);});card.addEventListener("keydown",event=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();openDetails(card);}});});
+  document.getElementById("details-close").addEventListener("click",closeDetails);
+  modal.addEventListener("click",event=>{if(event.target===modal)closeDetails();});
+  document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!modal.classList.contains("hidden"))closeDetails();});
   const noResults=document.getElementById("no-results");
   function filterApps(){
     const term=search.value.trim().toLowerCase();let visible=0;
@@ -87,6 +111,7 @@
   const countdown=document.getElementById("countdown");
   let sessionTimer=null,remaining=30;
   function showDisconnected(){
+    closeDetails();
     if(sessionTimer){clearInterval(sessionTimer);sessionTimer=null;}
     document.querySelector(".store-content").classList.add("disconnected");
     statusPanel.classList.add("hidden");errorPanel.classList.remove("hidden");
