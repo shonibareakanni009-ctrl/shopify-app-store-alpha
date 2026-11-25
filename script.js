@@ -87,10 +87,15 @@
     document.getElementById("details-icon").src=image?.src||"https://cdn.simpleicons.org/shopify/7AB55C";
     document.getElementById("details-link").href=url;
     document.getElementById("details-link").textContent=card.dataset.external?"View official listing ↗":"Find official app information ↗";
+    document.getElementById("cta-message").textContent="Payment link coming soon. You can still view the official listing.";
     modal.classList.remove("hidden");modal.setAttribute("aria-hidden","false");
     document.getElementById("details-close").focus();
   }
   cards.forEach(card=>{card.setAttribute("role","button");card.setAttribute("tabindex","0");card.addEventListener("click",event=>{event.preventDefault();openDetails(card);});card.addEventListener("keydown",event=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();openDetails(card);}});});
+  document.getElementById("details-cta").addEventListener("click",()=>{
+    const message=document.getElementById("cta-message");
+    message.textContent="Thanks for your interest! The payment link will be added here soon.";
+  });
   document.getElementById("details-close").addEventListener("click",closeDetails);
   modal.addEventListener("click",event=>{if(event.target===modal)closeDetails();});
   document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!modal.classList.contains("hidden"))closeDetails();});
