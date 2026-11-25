@@ -3,43 +3,75 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f6f6f7">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Discover apps to grow your Shopify store.">
   <title>Shopify App Store Alpha</title>
+  <link rel="preconnect" href="https://cdn.simpleicons.org">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main id="app" aria-live="polite">
-    <section id="blank-stage" class="stage blank-stage">
-      <div class="shopify-spinner" role="status" aria-label="Loading"></div>
-    </section>
+  <main id="app">
+    <section id="blank-stage" class="stage blank-stage"><div class="shopify-spinner" role="status" aria-label="Loading"></div></section>
     <section id="assets-stage" class="stage assets-stage hidden">
       <div class="asset-shell">
         <div class="asset-top"><span class="tiny-spinner"></span><span>Preparing storefront assets</span><span id="asset-count">0 / 7</span></div>
-        <h1>Loading assets</h1>
-        <p class="muted">Please wait while required resources are prepared…</p>
-        <div id="asset-list" class="asset-list"></div>
-        <div class="progress-track"><span id="asset-progress"></span></div>
-        <div class="asset-source"><span>Asset source</span><div class="github-brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.76 2.14 3.47 1.52.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.12-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.12 2.96.71.78 1.14 1.78 1.14 3.14 0 4.29-2.61 5.23-5.1 5.51.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg><strong>GitHub</strong></div></div>
+        <h1>Loading assets</h1><p class="muted">Please wait while required resources are prepared…</p>
+        <div id="asset-list" class="asset-list"></div><div class="progress-track"><span id="asset-progress"></span></div>
+        <div class="asset-source"><span>Asset source</span><div class="github-brand"><strong>GitHub</strong></div></div>
       </div>
     </section>
     <section id="store-stage" class="stage store-stage hidden">
       <header class="store-header">
-        <div class="brand-lockup"><div class="shopify-mark">S</div><span>Shopify App Store</span></div>
-        <form class="header-search" role="search" onsubmit="return false">
+        <a class="brand-lockup" href="#" aria-label="Shopify App Store home"><span class="shopify-mark">S</span><span>Shopify App Store</span></a>
+        <form class="header-search" id="search-form" role="search">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
-          <input type="search" aria-label="Search apps" placeholder="Search apps">
+          <input id="app-search" type="search" aria-label="Search apps" placeholder="Search apps, categories, and more">
+          <button type="submit" aria-label="Search">Search</button>
         </form>
-        <div class="header-actions">
-          <button class="login-button" type="button">Log in</button>
-          <button class="signup-button" type="button">Sign up</button>
-        </div>
+        <div class="header-actions"><button class="login-button" type="button">Log in</button><button class="signup-button" type="button">Sign up</button></div>
       </header>
       <div class="store-content">
-        <div id="store-loading" class="store-loading"><span class="store-spinner"></span><span>Loading apps…</span></div>
-        <div id="connection-error" class="connection-error hidden">
-          <p>Failed to connect with server.</p>
-          <button id="retry-button" type="button">Try again</button>
-        </div>
+        <div id="connection-error" class="connection-error hidden"><span>We couldn’t connect to the app catalogue.</span><button id="retry-button" type="button">Try again</button></div>
+        <section class="hero-banner">
+          <div class="hero-copy"><span class="eyebrow">SHOPIFY APP STORE</span><h1>Get the best apps for your business with <span>Built for Shopify</span></h1><p>Discover trusted apps that help you sell more, work smarter, and grow faster.</p><a href="#built-for-shopify">Explore apps <span>→</span></a></div>
+          <div class="hero-feature-grid" id="built-for-shopify">
+            <article class="hero-app"><img src="https://cdn.simpleicons.org/microsoft/ffffff" alt=""><div><b>Matrixify</b><small>Bulk import, export & update</small><span>★ 4.9 · Free plan available</span></div></article>
+            <article class="hero-app"><img src="https://cdn.simpleicons.org/meta/ffffff" alt=""><div><b>MetaShop</b><small>Instagram & Facebook shopping</small><span>★ 5.0 · Free plan available</span></div></article>
+            <article class="hero-app"><img src="https://cdn.simpleicons.org/whatsapp/ffffff" alt=""><div><b>Dondy</b><small>WhatsApp marketing and chat</small><span>★ 4.9 · Free plan available</span></div></article>
+            <article class="hero-app"><img src="https://cdn.simpleicons.org/woocommerce/ffffff" alt=""><div><b>Syncee</b><small>Premium AI dropshipping</small><span>★ 4.2 · Free plan available</span></div></article>
+            <article class="hero-app"><img src="https://cdn.simpleicons.org/mailchimp/ffffff" alt=""><div><b>QWILL Popup Email Marketing</b><small>Popups, newsletters & messages</small><span>★ 4.9 · Free plan available</span></div></article>
+            <article class="hero-app"><img src="https://cdn.simpleicons.org/shopify/ffffff" alt=""><div><b>Faire: Sell Wholesale</b><small>Connect with independent retailers</small><span>★ 4.6 · Free to install</span></div></article>
+          </div>
+        </section>
+        <section class="app-section">
+          <div class="section-heading"><div><h2>Popular with merchants across Shopify</h2><p>Apps merchants use every day</p></div><a href="#popular-apps">View all <span>→</span></a></div>
+          <div class="app-grid" id="popular-apps">
+            <article class="app-card" data-search="shopify digital products downloads files links"><img class="app-icon" src="https://cdn.simpleicons.org/shopify/7AB55C" alt="Shopify"><div class="app-info"><h3>Shopify Digital Products</h3><p>Sell digital downloads, files, links, and more.</p><div class="app-meta">★ 4.8 <span>(15,520)</span> · Free</div></div></article>
+            <article class="app-card" data-search="shopify flow automation workflow"><img class="app-icon" src="https://cdn.simpleicons.org/shopify/7AB55C" alt="Shopify Flow"><div class="app-info"><h3>Shopify Flow</h3><p>Automate everything and get back to business.</p><div class="app-meta">★ 4.7 <span>(15,843)</span> · Free</div></div></article>
+            <article class="app-card" data-search="google youtube sales channel"><img class="app-icon" src="https://cdn.simpleicons.org/google/4285F4" alt="Google"><div class="app-info"><h3>Google & YouTube</h3><p>Drive sales by showcasing your products on Google and YouTube.</p><div class="app-meta">★ 4.6 <span>(5,686)</span> · Free to install</div></div></article>
+            <article class="app-card" data-search="shop translate adapt translation languages"><img class="app-icon" src="https://cdn.simpleicons.org/googletranslate/4285F4" alt="Translate"><div class="app-info"><h3>Shopify Translate & Adapt</h3><p>Translate and adapt your store content for every market.</p><div class="app-meta">★ 4.4 <span>(1,376)</span> · Free</div></div></article>
+            <article class="app-card" data-search="shop app shopping marketplace"><img class="app-icon" src="https://cdn.simpleicons.org/shopify/7AB55C" alt="Shop"><div class="app-info"><h3>Shop</h3><p>Reach millions of high-intent shoppers on Shop.</p><div class="app-meta">★ 4.8 <span>(10,633)</span> · Free</div></div></article>
+            <article class="app-card" data-search="pinterest social shopping products"><img class="app-icon" src="https://cdn.simpleicons.org/pinterest/E60023" alt="Pinterest"><div class="app-info"><h3>Pinterest</h3><p>Put your products where people go to find ideas.</p><div class="app-meta">★ 4.1 <span>(1,698)</span> · Free to install</div></div></article>
+          </div>
+        </section>
+        <a class="shipping-banner" href="#sponsored-apps"><div><span class="eyebrow">SELL ACROSS THE WORLD</span><h2>Shipping made simple</h2><p>Browse apps that make it easier to ship, track, and deliver orders to your customers.</p><b>Explore shipping apps →</b></div><img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1000&q=85" alt="Colourful packages ready for shipping"></a>
+        <section class="app-section">
+          <div class="section-heading"><div><h2>Sponsored apps</h2><p>Tools worth discovering</p></div></div>
+          <div class="app-grid compact-grid" id="sponsored-apps">
+            <article class="app-card" data-search="tiktok social ads shop"><img class="app-icon" src="https://cdn.simpleicons.org/tiktok/111111" alt="TikTok"><div class="app-info"><h3>TikTok</h3><p>Launch TikTok ads and sell directly via TikTok Shop.</p><div class="app-meta">★ 4.8 <span>(16,002)</span> · Free to install</div></div></article>
+            <article class="app-card" data-search="envia shipping fulfillment"><img class="app-icon" src="https://cdn.simpleicons.org/ups/5A2D82" alt="Shipping"><div class="app-info"><h3>Envia Shipping and Fulfillment</h3><p>Compare domestic and international shipping labels.</p><div class="app-meta">★ 4.4 <span>(469)</span> · Free to install</div></div></article>
+            <article class="app-card" data-search="klaviyo email marketing sms"><img class="app-icon" src="https://cdn.simpleicons.org/klaviyo/222222" alt="Klaviyo"><div class="app-info"><h3>Klaviyo: Email Marketing & SMS</h3><p>Email marketing, SMS, and WhatsApp that turn messages into sales.</p><div class="app-meta">★ 4.7 <span>(3,474)</span> · Free plan available</div></div></article>
+            <article class="app-card" data-search="one mobile app builder"><img class="app-icon" src="https://cdn.simpleicons.org/shopify/7AB55C" alt="App builder"><div class="app-info"><h3>OneMobile ‑ Mobile App Builder</h3><p>Build a stunning and high-converting mobile app.</p><div class="app-meta">★ 4.8 <span>(365)</span> · Free plan available</div></div></article>
+          </div>
+        </section>
+        <section class="spotlight-section"><div class="spotlight-main"><div class="section-heading"><div><h2>In the spotlight</h2><p>Fresh picks for your store</p></div></div><div class="spotlight-list">
+          <article class="app-card" data-search="orca ai oms operations"><img class="app-icon" src="https://cdn.simpleicons.org/openai/111111" alt="Orca"><div class="app-info"><h3>Orca: AI-powered OMS</h3><p>The only OMS built in language, not code.</p><div class="app-meta">★ 5.0 · Free plan available</div></div></article>
+          <article class="app-card" data-search="endear clienteling retail sales"><img class="app-icon" src="https://cdn.simpleicons.org/salesforce/00A1E0" alt="Endear"><div class="app-info"><h3>Endear AI-Powered Clienteling</h3><p>Clienteling platform for driving retail sales.</p><div class="app-meta">★ 4.9 · Free trial available</div></div></article>
+          <article class="app-card" data-search="klaviyo email sms marketing"><img class="app-icon" src="https://cdn.simpleicons.org/klaviyo/222222" alt="Klaviyo"><div class="app-info"><h3>Klaviyo: Email Marketing & SMS</h3><p>Turn messages into sales with email and SMS.</p><div class="app-meta">★ 4.7 · Free plan available</div></div></article>
+          <article class="app-card" data-search="repet e reorder reminders"><img class="app-icon" src="https://cdn.simpleicons.org/shopify/7AB55C" alt="RePete"><div class="app-info"><h3>rePete: AI Reorder Reminders</h3><p>Timely reminders to meet each customer’s buying rhythm.</p><div class="app-meta">★ 5.0 · Free to install</div></div></article>
+        </div></div><a class="spotlight-promo" href="#popular-apps"><span>FEATURED COLLECTION</span><h2>Help customers find exactly what they need.</h2><p>Explore apps that improve product discovery and shopping experiences.</p><b>Explore the collection →</b><div class="promo-orbit">✦</div></a></section>
+        <footer class="store-footer"><span>Shopify App Store Alpha</span><span>Discover tools. Grow your business.</span></footer>
+        <p id="no-results" class="no-results hidden">No apps found. Try another search.</p>
       </div>
     </section>
   </main>
