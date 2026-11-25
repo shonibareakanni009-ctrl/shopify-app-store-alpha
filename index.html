@@ -76,6 +76,16 @@
         <footer class="store-footer"><span>Shopify App Store Alpha</span><span>Discover tools. Grow your business.</span></footer>
         <p id="no-results" class="no-results hidden">No apps found. Try another search.</p>
       </div>
+      <div id="app-details-modal" class="details-overlay hidden" aria-hidden="true">
+        <section class="details-dialog" role="dialog" aria-modal="true" aria-labelledby="details-title">
+          <button id="details-close" class="details-close" type="button" aria-label="Close details">×</button>
+          <div class="details-heading"><img id="details-icon" class="details-icon" alt=""><div><span id="details-category" class="details-category"></span><h2 id="details-title">App details</h2><p id="details-rating" class="details-rating"></p></div></div>
+          <p id="details-description" class="details-description"></p>
+          <div class="details-facts"><div><span>What it helps with</span><strong id="details-benefit"></strong></div><div><span>Availability</span><strong id="details-availability">See provider for current plans and eligibility</strong></div></div>
+          <a id="details-link" class="details-link" href="#" target="_blank" rel="noopener noreferrer">View official listing <span>↗</span></a>
+          <p class="details-note">Information is a short overview. Features, pricing, ratings and eligibility may change; check the provider's official page for current details.</p>
+        </section>
+      </div>
     </section>
   </main>
   <script src="script.js"></script>
