@@ -31,7 +31,8 @@
         <div class="header-actions"><button class="login-button" type="button">Log in</button><button class="signup-button" type="button">Sign up</button></div>
       </header>
       <div class="store-content">
-        <div id="connection-error" class="connection-error hidden"><span>We couldn’t connect to the app catalogue.</span><button id="retry-button" type="button">Try again</button></div>
+        <div id="connection-error" class="connection-error"><span>Failed to connect to server.</span><button id="retry-button" type="button">Retry</button></div>
+        <div id="temporary-status" class="temporary-status hidden" role="status"><span class="status-dot"></span><div><strong>Connected to temporary server</strong><small>Alpha environment · Session expires in <b id="countdown">30</b>s</small></div><span class="alpha-label">ALPHA</span></div>
         <section class="hero-banner">
           <div class="hero-copy"><span class="eyebrow">SHOPIFY APP STORE</span><h1>Get the best apps for your business with <span>Built for Shopify</span></h1><p>Discover trusted apps that help you sell more, work smarter, and grow faster.</p><a href="#built-for-shopify">Explore apps <span>→</span></a></div>
           <div class="hero-feature-grid" id="built-for-shopify">
@@ -70,6 +71,8 @@
           <article class="app-card" data-search="klaviyo email sms marketing"><img class="app-icon" src="https://cdn.simpleicons.org/klaviyo/222222" alt="Klaviyo"><div class="app-info"><h3>Klaviyo: Email Marketing & SMS</h3><p>Turn messages into sales with email and SMS.</p><div class="app-meta">★ 4.7 · Free plan available</div></div></article>
           <article class="app-card" data-search="repet e reorder reminders"><img class="app-icon" src="https://cdn.simpleicons.org/shopify/7AB55C" alt="RePete"><div class="app-info"><h3>rePete: AI Reorder Reminders</h3><p>Timely reminders to meet each customer’s buying rhythm.</p><div class="app-meta">★ 5.0 · Free to install</div></div></article>
         </div></div><a class="spotlight-promo" href="#popular-apps"><span>FEATURED COLLECTION</span><h2>Help customers find exactly what they need.</h2><p>Explore apps that improve product discovery and shopping experiences.</p><b>Explore the collection →</b><div class="promo-orbit">✦</div></a></section>
+        <section class="app-section resource-section" id="google-tools-section"><div class="section-heading"><div><h2>Google tools for Shopify stores</h2><p>Measure performance, improve visibility, and grow across Google</p></div><span class="section-tag">12 RESOURCES</span></div><div class="app-grid resource-grid" id="google-tools-grid"></div></section>
+        <section class="app-section resource-section" id="shopify-tools-section"><div class="section-heading"><div><h2>Shopify apps and sales channels</h2><p>Essential tools for store management, marketing, and discovery</p></div><span class="section-tag">10 TOOLS</span></div><div class="app-grid resource-grid" id="shopify-tools-grid"></div></section>
         <footer class="store-footer"><span>Shopify App Store Alpha</span><span>Discover tools. Grow your business.</span></footer>
         <p id="no-results" class="no-results hidden">No apps found. Try another search.</p>
       </div>
